@@ -5,10 +5,12 @@ import java.util.Queue;
 
 public class LevelOrderTraverse {
 
-	/*
-	 * 
-	 * class Node int data; Node left; Node right;
-	 */
+	 class Node{
+	 int data; 
+	 Node left;
+	 Node right;
+	 }
+	 
 	void LevelOrder(Node root) {
 		if (root == null)
 			return;
