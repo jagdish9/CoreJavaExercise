@@ -75,8 +75,8 @@ public class HashTag02 {
 		}
 		
 		Map<String, Integer> map_02 = sortByValue(map_01);
-		Set set_05 = map_02.entrySet();
-	    Iterator it_03 = set_05.iterator();
+		Set<Map.Entry<String, Integer>> set_05 = map_02.entrySet();
+	    Iterator<Map.Entry<String, Integer>> it_03 = set_05.iterator();
 	    int data = 0;
 	    Set<String> tset_01 = new HashSet<String>();
 	    while(it_03.hasNext())
@@ -85,7 +85,7 @@ public class HashTag02 {
 	    	tset_01.add(men_02.getKey());
 	    }
 	    
-	    Iterator it_04 = tset_01.iterator();
+	    Iterator<String> it_04 = tset_01.iterator();
 	    while(data < N && it_04.hasNext())
 	    {
 	    	System.out.println(it_04.next());
