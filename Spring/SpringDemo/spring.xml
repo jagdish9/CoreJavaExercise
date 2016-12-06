@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" >
+
+<beans>
+   <!-- <bean id ="triangle" class ="com.spring.demo.Triangle" > -->
+      <!--   <property name="type" value="Equilateral"></property> setter injection-->
+      <!-- <constructor-arg value = "Equalaction"> </constructor-arg> constructor injection-->
+      <!--  <constructor-arg type="int" value="20"></constructor-arg> -->
+     <!--   <constructor-arg type="java.lang.String" value="20"></constructor-arg> -->
+     <!-- <constructor-arg index="0" value="Equilateral"></constructor-arg> -->
+     <!-- <constructor-arg index="1" value="30"></constructor-arg> -->
+   <!--  </bean> -->
+   
+ <!--   <bean id ="triangle" class ="com.spring.demo.Triangle" >
+       <property name="pointA" ref="zeroPoint"></property>
+       <property name="pointB" ref="point1"></property>
+       <property name="pointC" ref="point2"></property>
+    </bean>
+   
+    <bean id ="zeroPoint" class ="com.spring.demo.Point" >   
+        <property name="x" value="0"></property>
+        <property name="y" value="0"></property>
+    </bean>
+    
+     <bean id ="point1" class ="com.spring.demo.Point" >
+        <property name="x" value="-20"></property>
+        <property name="y" value="0"></property>
+    </bean>
+    
+      <bean id ="point2" class ="com.spring.demo.Point" >
+        <property name="x" value="0"></property>
+        <property name="y" value="20"></property>
+    </bean> -->
+    
+    <bean id ="triangle" class ="com.spring.demo.Triangle" >
+      <property name="pointA" ref="zeroPoint"></property> 
+       <!--  <property name="pointA" >
+           <idref="zeroPoint" /> 
+       </property>  -->
+       <property name="pointB">
+	     <bean class="com.spring.demo.Point">
+		   <property name="x" value="-20"></property>
+		   <property name="y" value="0"></property>
+	    </bean>
+       </property>    
+       <property name="pointC">
+          <bean class ="com.spring.demo.Point" >  
+            <property name="x" value="0"></property>
+            <property name="y" value="20"></property>
+          </bean>
+       </property>
+    </bean>
+   
+     <bean id ="zeroPoint" class ="com.spring.demo.Point" >  
+        <property name="x" value="0"></property>
+        <property name="y" value="0"></property>
+    </bean>
+    
+<alias name="triangle" alias="triangle-alias"/>
+</beans>

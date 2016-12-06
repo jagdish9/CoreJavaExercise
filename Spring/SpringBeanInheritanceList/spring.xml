@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" [
+<!ENTITY contextInclude SYSTEM "org/springframework/web/context/WEB-INF/contextInclude.xml">
+]>
+
+<beans>
+   <bean id="parenttriangle" class="com.java.hibernate.inheritance.list.Triangle" abstract="true"> <!-- abstract ture means its instance can not be instatiated only we can access -->
+       <property name="points">
+        <list>
+            <ref bean="pointA" />
+        </list>     
+       </property>
+   </bean>
+   
+    <bean id="triangle1" class="com.java.hibernate.inheritance.list.Triangle" parent="parenttriangle">
+      <property name="points">
+        <list merge="true"> <!-- merge will add or include parent and child records -->
+            <ref bean="pointC" />
+        </list>     
+       </property>
+   </bean>
+   
+    <bean id="triangle2" class="com.java.hibernate.inheritance.list.Triangle" parent="parenttriangle">
+       <property name="pointB" ref="pointB"></property>
+   </bean>
+   
+    <bean id="pointA" class="com.java.hibernate.inheritance.list.Point">
+        <property name="x" value="0"></property>
+        <property name="y" value="0"></property>
+    </bean>
+    
+    <bean id="pointB" class="com.java.hibernate.inheritance.list.Point">
+        <property name="x" value="20"></property>
+        <property name="y" value="0"></property>
+    </bean>
+    
+    <bean id="pointC" class="com.java.hibernate.inheritance.list.Point">
+        <property name="x" value="0"></property>
+        <property name="y" value="20"></property>
+    </bean>
+    
+</beans>

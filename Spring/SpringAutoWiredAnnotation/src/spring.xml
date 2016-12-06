@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" >
+
+<beans>
+<!--     <bean id="triangle" class="com.spring.autoWiredAnnotation.Triangle">
+        <property name="pointA" ref="pointA"></property>
+        <property name="pointB" ref="pointB"></property>
+        <property name="pointC" ref="pointC"></property>
+    </bean> -->
+    
+        <bean id="pointA" class="com.spring.autoWiredAnnotation.Point">
+        <property name="x" value="0"></property>
+        <property name="y" value="0"></property>
+       </bean>
+    
+       <!--  <bean id="pointB" class="com.spring.autoWiredAnnotation.Point">
+         <property name="x" value="0"></property>
+         <property name="y" value="-20"></property>
+        </bean>
+        
+          <bean id="pointC" class="com.spring.autoWiredAnnotation.Point">
+            <property name="x" value="20"></property>
+            <property name="y" value="0"></property>
+          </bean> -->
+        
+          <bean id="circle" class="com.spring.autoWiredAnnotation.Circle" >
+            <!--   <property name="center" ref="pointA"></property> commented this line, we will get nullpointerexception-->
+          </bean>
+          
+        <!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+         --><!-- because of above line we will not get null pointer exception -->
+         
+         <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+</beans>
